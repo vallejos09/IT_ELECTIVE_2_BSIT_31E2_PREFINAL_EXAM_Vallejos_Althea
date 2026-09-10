@@ -204,5 +204,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "Client-side validation runs in JavaScript in the browser, giving instant feedback before the form is ever submitted."
         },
+        new Question
+        {
+            Number = 14,
+            Topic = "Validation",
+            Prompt = "Why is server-side validation still necessary if client-side validation exists?",
+            Choices = new()
+            {
+                ["A"] = "Client-side validation can be bypassed",
+                ["B"] = "Client-side validation automatically modifies the database",
+                ["C"] = "Server-side validation only works with SQLite",
+                ["D"] = "Client-side validation cannot display messages"
+            },
+            CorrectLetter = "A",
+            Rationale = "JavaScript can be disabled or bypassed with a direct HTTP request, so the server must re-check ModelState to actually enforce the rules."
+        },
     };
 }
