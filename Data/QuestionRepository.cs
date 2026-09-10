@@ -173,5 +173,21 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "A ViewModel is a purpose-built shape for one screen — it can flatten or combine fields from several entities so the view only sees what it needs."
         },
+        new Question
+        {
+            Number = 12,
+            Topic = "Querying with EF Core",
+            Prompt = "Consider this query. What is the main benefit of Include(s => s.Section)?",
+            CodeSnippet = "var students = _context.Students.Include(s => s.Section).ToList();",
+            Choices = new()
+            {
+                ["A"] = "It loads the related Section navigation property",
+                ["B"] = "It creates a Section object manually",
+                ["C"] = "It removes the foreign key",
+                ["D"] = "It prevents the query from accessing the database"
+            },
+            CorrectLetter = "A",
+            Rationale = "Without Include(), s.Section would be null for each student unless lazy loading is configured. Include() eagerly fetches it in the same round trip."
+        },
     };
 }
