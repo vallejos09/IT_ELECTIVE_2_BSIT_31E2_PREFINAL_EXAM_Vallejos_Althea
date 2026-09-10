@@ -264,5 +264,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "try...catch lets the controller intercept a runtime exception and respond gracefully instead of letting the app crash or return a raw error."
         },
+        new Question
+        {
+            Number = 18,
+            Topic = "Error Handling",
+            Prompt = "Which middleware is commonly used in ASP.NET Core for centralized exception handling?",
+            Choices = new()
+            {
+                ["A"] = "UseDatabase()",
+                ["B"] = "UseExceptionHandler()",
+                ["C"] = "UseValidationHandler()",
+                ["D"] = "UseMvcDatabase()"
+            },
+            CorrectLetter = "B",
+            Rationale = "UseExceptionHandler() sits in the middleware pipeline and routes any unhandled exception to a single error-handling endpoint."
+        },
     };
 }
