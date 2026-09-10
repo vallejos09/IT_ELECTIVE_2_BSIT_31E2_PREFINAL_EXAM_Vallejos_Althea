@@ -219,5 +219,20 @@ public static class QuestionRepository
             CorrectLetter = "A",
             Rationale = "JavaScript can be disabled or bypassed with a direct HTTP request, so the server must re-check ModelState to actually enforce the rules."
         },
+        new Question
+        {
+            Number = 15,
+            Topic = "Data Normalization & Integrity",
+            Prompt = "A school requires every student to have a unique Student Number. Which rule best represents this requirement?",
+            Choices = new()
+            {
+                ["A"] = "Student Number should always be nullable",
+                ["B"] = "Student Number should be unique",
+                ["C"] = "Student Number should always be the same",
+                ["D"] = "Student Number should contain only spaces"
+            },
+            CorrectLetter = "B",
+            Rationale = "The requirement, restated as a rule, is simply that no two students may share a Student Number — i.e. it must be unique."
+        },
     };
 }
