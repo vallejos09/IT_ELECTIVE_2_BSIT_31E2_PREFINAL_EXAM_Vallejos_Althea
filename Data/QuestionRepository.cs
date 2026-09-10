@@ -112,5 +112,21 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "One Section relates to many Students, so from Section's side it is a One-to-Many relationship (equivalently Many-to-One from Student's side)."
         },
+        new Question
+        {
+            Number = 8,
+            Topic = "Relational Data Modeling",
+            Prompt = "In the following example, what is SectionId?",
+            CodeSnippet = "public int SectionId { get; set; }\npublic Section Section { get; set; }",
+            Choices = new()
+            {
+                ["A"] = "Primary key of Student",
+                ["B"] = "Foreign key referencing Section",
+                ["C"] = "Navigation property",
+                ["D"] = "Database connection string"
+            },
+            CorrectLetter = "B",
+            Rationale = "SectionId is the scalar column that points back to Section's primary key — the Section property beneath it is the navigation property, not this one."
+        },
     };
 }
