@@ -82,5 +82,20 @@ public static class QuestionRepository
             CorrectLetter = "C",
             Rationale = "This is the Database-First scaffolding command — it inspects the connection string's schema and writes matching entity classes and a DbContext into the Models folder."
         },
+        new Question
+        {
+            Number = 6,
+            Topic = "Configuration",
+            Prompt = "Where is a database connection string commonly stored in an ASP.NET Core MVC application?",
+            Choices = new()
+            {
+                ["A"] = "Program.cs only",
+                ["B"] = "appsettings.json",
+                ["C"] = "Index.cshtml",
+                ["D"] = "Student.cs"
+            },
+            CorrectLetter = "B",
+            Rationale = "appsettings.json is the standard configuration file — it keeps connection strings out of code and lets each environment override them."
+        },
     };
 }
