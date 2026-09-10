@@ -158,5 +158,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "Include() performs eager loading — it tells EF Core to pull the related entity in the same query instead of leaving the navigation property empty."
         },
+        new Question
+        {
+            Number = 11,
+            Topic = "Razor & View Design",
+            Prompt = "Why might a ViewModel be used when displaying Student and Section information?",
+            Choices = new()
+            {
+                ["A"] = "To replace the database",
+                ["B"] = "To combine or shape the data specifically needed by the view",
+                ["C"] = "To automatically create database tables",
+                ["D"] = "To prevent controllers from using LINQ"
+            },
+            CorrectLetter = "B",
+            Rationale = "A ViewModel is a purpose-built shape for one screen — it can flatten or combine fields from several entities so the view only sees what it needs."
+        },
     };
 }
