@@ -1,0 +1,56 @@
+@model List<Question>
+@{
+    ViewData["Title"] = "Prefinal Examination";
+}
+
+<header class="cover">
+    <div class="cover-stamp">EXAMINATION BOOKLET</div>
+    <h1 class="cover-title">IT Elective 2<br>Web Systems &amp; Technologies</h1>
+    <p class="cover-sub">Prefinal Examination &middot; 1st Semester, A.Y. 2026&ndash;2027</p>
+
+    <div class="cover-fields">
+        <div class="field">
+            <span class="field-label">Name</span>
+            <span class="field-value handwritten">Vallejos, Althea P.</span>
+        </div>
+        <div class="field">
+            <span class="field-label">Class &amp; Section</span>
+            <span class="field-value handwritten">BSIT &ndash; 31E2</span>
+        </div>
+        <div class="field">
+            <span class="field-label">Score</span>
+            <span class="field-value handwritten">20 / 20</span>
+        </div>
+    </div>
+</header>
+
+<section class="instructions">
+    <p>
+        Twenty items, each shaded on the sheet below the way it would be on paper.
+        Tap any row to open that item as a full index card with the reasoning
+        behind the shaded answer.
+    </p>
+</section>
+
+<ol class="answer-sheet">
+    @foreach (var q in Model)
+    {
+        <li>
+            <a class="sheet-row" href="@Url.Action("Details", "Exam", new { id = q.Number })">
+                <span class="item-no">@q.Number.ToString("00")</span>
+                <span class="item-prompt">@q.Prompt</span>
+                <span class="bubbles">
+                    @foreach (var letter in new[] { "A", "B", "C", "D" })
+                    {
+                        <span class="bubble @(letter == q.CorrectLetter ? "filled" : "")">@letter</span>
+                    }
+                </span>
+            </a>
+        </li>
+    }
+</ol>
+
+<footer class="cover-footer">
+    <span>Booklet No. 4</span>
+    <span>&mdash; end of answer sheet &mdash;</span>
+</footer>

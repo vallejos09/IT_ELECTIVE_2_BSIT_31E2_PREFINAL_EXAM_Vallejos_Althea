@@ -1,0 +1,368 @@
+:root {
+    --paper: #efe8d4;
+    --paper-edge: #e2d9bd;
+    --rule-blue: #9fb4c9;
+    --margin-red: #c2554a;
+    --ink: #212a3f;
+    --ink-soft: #4a5064;
+    --pen-red: #a83a2e;
+    --pencil: #6f6a57;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #cbbf9e;
+    color: var(--ink);
+    font-family: "Courier Prime", "Courier New", monospace;
+}
+
+.binding {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 14px;
+    background: repeating-linear-gradient(
+        90deg,
+        #8f8266 0 2px,
+        transparent 2px 18px
+    );
+    opacity: 0.5;
+}
+
+.booklet {
+    max-width: 760px;
+    margin: 28px auto 80px;
+    padding: 48px 56px 56px 72px;
+    background:
+        linear-gradient(var(--paper), var(--paper)) padding-box,
+        repeating-linear-gradient(
+            180deg,
+            transparent 0,
+            transparent 33px,
+            var(--rule-blue) 34px
+        );
+    background-blend-mode: normal;
+    border: 1px solid var(--paper-edge);
+    box-shadow: 0 18px 40px rgba(30, 24, 10, 0.35);
+    position: relative;
+}
+
+.booklet::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 48px;
+    width: 2px;
+    background: var(--margin-red);
+    opacity: 0.55;
+}
+
+/* ---------- cover ---------- */
+
+.cover-stamp {
+    display: inline-block;
+    font-family: "Special Elite", monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--pencil);
+    border: 1px solid var(--pencil);
+    padding: 3px 10px;
+    transform: rotate(-1.5deg);
+}
+
+.cover-title {
+    font-family: "Special Elite", monospace;
+    font-size: 34px;
+    line-height: 1.25;
+    margin: 18px 0 6px;
+    color: var(--ink);
+}
+
+.cover-sub {
+    margin: 0 0 26px;
+    color: var(--ink-soft);
+    font-size: 14px;
+}
+
+.cover-fields {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.field {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    border-bottom: 1px dotted var(--pencil);
+    padding-bottom: 4px;
+}
+
+.field-label {
+    font-size: 11px;
+    text-transform: lowercase;
+    color: var(--pencil);
+    width: 110px;
+    flex-shrink: 0;
+}
+
+.handwritten {
+    font-family: "Caveat", cursive;
+    font-size: 24px;
+    color: var(--pen-red);
+}
+
+.instructions {
+    margin: 28px 0 20px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+}
+
+/* ---------- answer sheet (Index) ---------- */
+
+.answer-sheet {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sheet-row {
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    gap: 14px;
+    align-items: start;
+    text-decoration: none;
+    color: inherit;
+    padding: 9px 6px;
+    border-radius: 3px;
+    transition: background-color 0.15s ease;
+}
+
+.sheet-row:hover,
+.sheet-row:focus-visible {
+    background: rgba(159, 180, 201, 0.28);
+    outline: none;
+}
+
+.item-no {
+    font-family: "Special Elite", monospace;
+    font-size: 13px;
+    color: var(--pencil);
+    padding-top: 2px;
+}
+
+.item-prompt {
+    font-size: 14.5px;
+    line-height: 1.5;
+}
+
+.bubbles {
+    display: flex;
+    gap: 5px;
+    padding-top: 1px;
+}
+
+.bubble {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.4px solid var(--pencil);
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pencil);
+}
+
+.bubble.filled {
+    background: var(--pen-red);
+    border-color: var(--pen-red);
+    color: var(--paper);
+    font-weight: bold;
+}
+
+.cover-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 34px;
+    padding-top: 14px;
+    border-top: 1px dotted var(--pencil);
+    font-size: 11px;
+    color: var(--pencil);
+}
+
+/* ---------- item detail (index card) ---------- */
+
+.card-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    font-size: 13px;
+}
+
+.back-link {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-blue);
+}
+
+.back-link:hover { color: var(--pen-red); }
+
+.topic-tag {
+    font-family: "Special Elite", monospace;
+    font-size: 11px;
+    color: var(--pencil);
+    border: 1px solid var(--pencil);
+    padding: 2px 8px;
+    transform: rotate(1deg);
+}
+
+.index-card {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--paper-edge);
+    padding: 26px 28px;
+    position: relative;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Special Elite", monospace;
+    font-size: 12px;
+    color: var(--pencil);
+    margin-bottom: 14px;
+}
+
+.card-prompt {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.card-code {
+    background: rgba(33, 42, 63, 0.06);
+    border-left: 3px solid var(--rule-blue);
+    padding: 12px 14px;
+    font-size: 13px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    margin: 0 0 18px;
+}
+
+.card-choices {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.choice {
+    display: grid;
+    grid-template-columns: 26px 1fr 20px;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border: 1px solid transparent;
+    font-size: 14px;
+}
+
+.choice-letter {
+    font-family: "Special Elite", monospace;
+    color: var(--pencil);
+}
+
+.choice.chosen {
+    border-color: var(--pen-red);
+    background: rgba(168, 58, 46, 0.08);
+}
+
+.choice.chosen .choice-letter {
+    color: var(--pen-red);
+    font-weight: bold;
+}
+
+.check-mark {
+    font-family: "Caveat", cursive;
+    font-size: 22px;
+    color: var(--pen-red);
+    justify-self: end;
+}
+
+.reveal-btn {
+    font-family: "Courier Prime", monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    background: transparent;
+    border: 1px solid var(--pencil);
+    color: var(--ink-soft);
+    padding: 7px 14px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.reveal-btn:hover {
+    border-color: var(--pen-red);
+    color: var(--pen-red);
+}
+
+.rationale {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    font-family: "Caveat", cursive;
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--pen-red);
+    margin-top: 0;
+    transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+}
+
+.rationale.open {
+    max-height: 220px;
+    opacity: 1;
+    margin-top: 14px;
+}
+
+.rationale-label {
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.card-pager {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+    font-size: 13px;
+}
+
+.card-pager a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-blue);
+}
+
+.card-pager a:hover { color: var(--pen-red); }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 600px) {
+    .booklet {
+        margin: 0;
+        padding: 32px 20px 40px 32px;
+        border: none;
+        box-shadow: none;
+    }
+    .booklet::before { left: 16px; }
+    .cover-title { font-size: 26px; }
+    .sheet-row { grid-template-columns: 26px 1fr; }
+    .bubbles { grid-column: 1 / -1; padding-left: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rationale, .sheet-row { transition: none; }
+}

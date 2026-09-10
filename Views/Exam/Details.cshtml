@@ -1,0 +1,64 @@
+@model Question
+@{
+    ViewData["Title"] = $"Item {Model.Number}";
+    var prev = Model.Number > 1 ? Model.Number - 1 : (int?)null;
+    var next = Model.Number < 20 ? Model.Number + 1 : (int?)null;
+}
+
+<nav class="card-nav">
+    <a class="back-link" href="@Url.Action("Index", "Exam")">&larr; Answer sheet</a>
+    <span class="topic-tag">@Model.Topic</span>
+</nav>
+
+<article class="index-card">
+    <div class="card-head">
+        <span class="card-no">No. @Model.Number</span>
+        <span class="card-of">of 20</span>
+    </div>
+
+    <p class="card-prompt">@Model.Prompt</p>
+
+    @if (!string.IsNullOrEmpty(Model.CodeSnippet))
+    {
+        <pre class="card-code">@Model.CodeSnippet</pre>
+    }
+
+    <ul class="card-choices">
+        @foreach (var kv in Model.Choices)
+        {
+            var isCorrect = kv.Key == Model.CorrectLetter;
+            <li class="choice @(isCorrect ? "chosen" : "")">
+                <span class="choice-letter">@kv.Key</span>
+                <span class="choice-text">@kv.Value</span>
+                @if (isCorrect)
+                {
+                    <span class="check-mark" aria-hidden="true">&#10003;</span>
+                }
+            </li>
+        }
+    </ul>
+
+    <button type="button" class="reveal-btn" data-target="rationale-@Model.Number">
+        Show reasoning
+    </button>
+
+    <div class="rationale" id="rationale-@Model.Number">
+        <span class="rationale-label">Why @Model.CorrectLetter:</span>
+        @Model.Rationale
+    </div>
+</article>
+
+<nav class="card-pager">
+    @if (prev.HasValue)
+    {
+        <a href="@Url.Action("Details", "Exam", new { id = prev })">&larr; Item @prev</a>
+    }
+    else
+    {
+        <span></span>
+    }
+    @if (next.HasValue)
+    {
+        <a href="@Url.Action("Details", "Exam", new { id = next })">Item @next &rarr;</a>
+    }
+</nav>
