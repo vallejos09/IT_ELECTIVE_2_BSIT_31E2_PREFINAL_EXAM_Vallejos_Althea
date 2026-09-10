@@ -279,5 +279,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "UseExceptionHandler() sits in the middleware pipeline and routes any unhandled exception to a single error-handling endpoint."
         },
+        new Question
+        {
+            Number = 19,
+            Topic = "Error Handling",
+            Prompt = "A user requests /Student/999, but Student 999 does not exist. What would be the most appropriate response?",
+            Choices = new()
+            {
+                ["A"] = "Display the student's information anyway",
+                ["B"] = "Display a Not Found (404) response/page",
+                ["C"] = "Delete Student 999",
+                ["D"] = "Create Student 999 automatically"
+            },
+            CorrectLetter = "B",
+            Rationale = "The resource genuinely doesn't exist, so the correct HTTP semantics — and the honest response to the user — is a 404 Not Found."
+        },
     };
 }
