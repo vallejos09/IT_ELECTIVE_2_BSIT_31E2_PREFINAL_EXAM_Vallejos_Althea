@@ -143,5 +143,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "Navigation properties let you walk from one entity to its related entity/entities in code, mirroring the relationship defined by the foreign key."
         },
+        new Question
+        {
+            Number = 10,
+            Topic = "Querying with EF Core",
+            Prompt = "What does .Include() generally allow EF Core to do?",
+            Choices = new()
+            {
+                ["A"] = "Delete the Section table",
+                ["B"] = "Load related Section data together with Students",
+                ["C"] = "Create a new Student",
+                ["D"] = "Validate Student input"
+            },
+            CorrectLetter = "B",
+            Rationale = "Include() performs eager loading — it tells EF Core to pull the related entity in the same query instead of leaving the navigation property empty."
+        },
     };
 }
