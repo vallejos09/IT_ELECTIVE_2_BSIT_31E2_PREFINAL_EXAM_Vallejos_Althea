@@ -36,5 +36,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "Database-First reverses the usual flow: the schema already exists, and EF Core's scaffolding tool reads it to generate matching C# classes."
         },
+        new Question
+        {
+            Number = 3,
+            Topic = "EF Core Fundamentals",
+            Prompt = "What is the primary purpose of Entity Framework Core?",
+            Choices = new()
+            {
+                ["A"] = "To create HTML pages automatically",
+                ["B"] = "To replace the MVC Controller",
+                ["C"] = "To map objects in code to relational database data",
+                ["D"] = "To replace the C# compiler"
+            },
+            CorrectLetter = "C",
+            Rationale = "EF Core is an Object-Relational Mapper (ORM) — its whole job is translating between C# objects and relational rows/tables."
+        },
     };
 }
