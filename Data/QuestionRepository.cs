@@ -249,5 +249,20 @@ public static class QuestionRepository
             CorrectLetter = "A",
             Rationale = "Application-level checks can be skipped (bugs, direct DB access, another app). A database constraint is the last line of defense that always holds."
         },
+        new Question
+        {
+            Number = 17,
+            Topic = "Error Handling",
+            Prompt = "What is the purpose of a try...catch block in a controller?",
+            Choices = new()
+            {
+                ["A"] = "To create navigation properties",
+                ["B"] = "To catch and handle exceptions that may occur during execution",
+                ["C"] = "To generate database tables",
+                ["D"] = "To perform client-side validation"
+            },
+            CorrectLetter = "B",
+            Rationale = "try...catch lets the controller intercept a runtime exception and respond gracefully instead of letting the app crash or return a raw error."
+        },
     };
 }
