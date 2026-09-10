@@ -234,5 +234,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "The requirement, restated as a rule, is simply that no two students may share a Student Number — i.e. it must be unique."
         },
+        new Question
+        {
+            Number = 16,
+            Topic = "Data Normalization & Integrity",
+            Prompt = "Which is the best reason for having a database-level unique constraint on StudentNumber?",
+            Choices = new()
+            {
+                ["A"] = "It protects data integrity even if application-level validation is bypassed",
+                ["B"] = "It makes Razor Views render faster",
+                ["C"] = "It removes the need for a Controller",
+                ["D"] = "It automatically creates a ViewModel"
+            },
+            CorrectLetter = "A",
+            Rationale = "Application-level checks can be skipped (bugs, direct DB access, another app). A database constraint is the last line of defense that always holds."
+        },
     };
 }
