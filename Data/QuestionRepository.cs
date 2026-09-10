@@ -21,6 +21,20 @@ public static class QuestionRepository
             CorrectLetter = "C",
             Rationale = "An in-memory list disappears the moment the process ends. A database keeps the data on disk, so it survives restarts, deployments, and crashes."
         },
-
+        new Question
+        {
+            Number = 2,
+            Topic = "EF Core Workflows",
+            Prompt = "Which approach is being used when an existing database is used to generate EF Core entity classes?",
+            Choices = new()
+            {
+                ["A"] = "Code-First",
+                ["B"] = "Database-First",
+                ["C"] = "Model-First",
+                ["D"] = "Controller-First"
+            },
+            CorrectLetter = "B",
+            Rationale = "Database-First reverses the usual flow: the schema already exists, and EF Core's scaffolding tool reads it to generate matching C# classes."
+        },
     };
 }
