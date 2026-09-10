@@ -189,5 +189,20 @@ public static class QuestionRepository
             CorrectLetter = "A",
             Rationale = "Without Include(), s.Section would be null for each student unless lazy loading is configured. Include() eagerly fetches it in the same round trip."
         },
+        new Question
+        {
+            Number = 13,
+            Topic = "Validation",
+            Prompt = "Which type of validation occurs in the browser before a request is sent to the server?",
+            Choices = new()
+            {
+                ["A"] = "Database-level validation",
+                ["B"] = "Client-side validation",
+                ["C"] = "Server-side validation",
+                ["D"] = "EF Core migration validation"
+            },
+            CorrectLetter = "B",
+            Rationale = "Client-side validation runs in JavaScript in the browser, giving instant feedback before the form is ever submitted."
+        },
     };
 }
