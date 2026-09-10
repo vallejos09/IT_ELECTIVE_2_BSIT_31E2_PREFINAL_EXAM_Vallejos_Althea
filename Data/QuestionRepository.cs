@@ -66,5 +66,21 @@ public static class QuestionRepository
             CorrectLetter = "A",
             Rationale = "DbContext represents the session with the database — it tracks entities, builds queries, and commits changes on SaveChanges()."
         },
+        new Question
+        {
+            Number = 5,
+            Topic = "EF Core Tooling",
+            Prompt = "What does the following command primarily do?",
+            CodeSnippet = "dotnet ef dbcontext scaffold \"ConnectionString\" Microsoft.EntityFrameworkCore.SqlServer -o Models",
+            Choices = new()
+            {
+                ["A"] = "Deletes the database",
+                ["B"] = "Creates a new MVC project",
+                ["C"] = "Generates EF Core models and a DbContext from an existing database",
+                ["D"] = "Starts the MVC application"
+            },
+            CorrectLetter = "C",
+            Rationale = "This is the Database-First scaffolding command — it inspects the connection string's schema and writes matching entity classes and a DbContext into the Models folder."
+        },
     };
 }
