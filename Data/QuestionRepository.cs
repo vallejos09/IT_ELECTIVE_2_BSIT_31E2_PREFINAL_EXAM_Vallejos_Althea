@@ -97,5 +97,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "appsettings.json is the standard configuration file — it keeps connection strings out of code and lets each environment override them."
         },
+        new Question
+        {
+            Number = 7,
+            Topic = "Relational Data Modeling",
+            Prompt = "A Student belongs to exactly one Section, while a Section can contain many students. What type of relationship is this?",
+            Choices = new()
+            {
+                ["A"] = "One-to-One",
+                ["B"] = "One-to-Many",
+                ["C"] = "Many-to-Many",
+                ["D"] = "Many-to-One only"
+            },
+            CorrectLetter = "B",
+            Rationale = "One Section relates to many Students, so from Section's side it is a One-to-Many relationship (equivalently Many-to-One from Student's side)."
+        },
     };
 }
