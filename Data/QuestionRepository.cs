@@ -128,5 +128,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "SectionId is the scalar column that points back to Section's primary key — the Section property beneath it is the navigation property, not this one."
         },
+        new Question
+        {
+            Number = 9,
+            Topic = "Relational Data Modeling",
+            Prompt = "What is the purpose of a navigation property such as public Section Section { get; set; }?",
+            Choices = new()
+            {
+                ["A"] = "It stores the database password",
+                ["B"] = "It represents a relationship to another entity",
+                ["C"] = "It creates a new database",
+                ["D"] = "It validates the student's name"
+            },
+            CorrectLetter = "B",
+            Rationale = "Navigation properties let you walk from one entity to its related entity/entities in code, mirroring the relationship defined by the foreign key."
+        },
     };
 }
