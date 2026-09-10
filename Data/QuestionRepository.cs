@@ -51,5 +51,20 @@ public static class QuestionRepository
             CorrectLetter = "C",
             Rationale = "EF Core is an Object-Relational Mapper (ORM) — its whole job is translating between C# objects and relational rows/tables."
         },
+        new Question
+        {
+            Number = 4,
+            Topic = "EF Core Fundamentals",
+            Prompt = "Which EF Core component is primarily responsible for communicating with the database?",
+            Choices = new()
+            {
+                ["A"] = "DbContext",
+                ["B"] = "DbSetView",
+                ["C"] = "ControllerContext",
+                ["D"] = "RazorContext"
+            },
+            CorrectLetter = "A",
+            Rationale = "DbContext represents the session with the database — it tracks entities, builds queries, and commits changes on SaveChanges()."
+        },
     };
 }
