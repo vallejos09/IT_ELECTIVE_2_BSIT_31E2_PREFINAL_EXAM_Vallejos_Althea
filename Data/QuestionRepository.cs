@@ -294,5 +294,20 @@ public static class QuestionRepository
             CorrectLetter = "B",
             Rationale = "The resource genuinely doesn't exist, so the correct HTTP semantics — and the honest response to the user — is a 404 Not Found."
         },
+        new Question
+        {
+            Number = 20,
+            Topic = "Data Integrity",
+            Prompt = "A student already belongs to Section A for a particular subject. The application attempts to assign the same student to Section A again. What is the primary concern?",
+            Choices = new()
+            {
+                ["A"] = "Data integrity",
+                ["B"] = "HTML formatting",
+                ["C"] = "CSS inheritance",
+                ["D"] = "Razor syntax"
+            },
+            CorrectLetter = "A",
+            Rationale = "A duplicate assignment corrupts the meaning of the data (was the student enrolled twice? is this a bug?) — that's a data integrity concern, not a presentation one."
+        },
     };
 }
